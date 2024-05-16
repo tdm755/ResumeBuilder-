@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import EducationForm from '../../../pages/Education/Education';
-import PersonalInfoForm from '../../../pages/PersonalInfoForm/PersonalInfo';
-import ExperienceForm from '../../../pages/ExperienceForm/Experience';
-import SkillsForm from '../../../pages/SkillsForm/Skill';
+import EducationForm from '../../pages/Education/Education.jsx'
+import PersonalInfoForm from '../../pages/PersonalInfoForm/PersonalInfo.jsx';
+import ExperienceForm from '../../pages/ExperienceForm/Experience.jsx';
+import SkillsForm from '../../pages/SkillsForm/Skill'
 import './ResumeInputFromUser.css';
+import { Link } from 'react-router-dom';
 
 function ResumeInputFromUser({ personalInfo, education, experience, skills, setPersonalInfo, setEducation, setExperience, setSkills }) {
   const [additionalEducationSections, setAdditionalEducationSections] = useState([]);
@@ -26,6 +27,7 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
       description: ''
     }]);
   };
+
 
   const handleEducationChange = (index, updatedEducation) => {
     const updatedSections = [...additionalEducationSections];
@@ -52,6 +54,7 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
   };
 
   return (
+    <>
     <div className='ResumeInputFromUser'>
       <PersonalInfoForm
         personalInfo={personalInfo}
@@ -96,7 +99,16 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
         setSkills={setSkills}
       />
     </div>
+    <Link to={"/template"}>
+        <button className="CreatingResume">
+          Preview
+        </button>
+      </Link>
+
+    </>
+    
   );
 }
+
 
 export default ResumeInputFromUser;

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
-import Resume1 from "../components/Resume/Resume1";
+import Resume1 from "../components/Resumes/Resume1/Resume1";
 import { Link, Route, Routes } from "react-router-dom";
-import ResumeInputFromUser from "../components/Resume/ResumeInputFromUser/ResumeInputFromUser";
+import ResumeInputFromUser from "../components/ResumeInputFromUser/ResumeInputFromUser";
+import SelectTemp from "../components/TemplateSelecter/SelectTemp";
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -29,11 +30,6 @@ function App() {
     description: "",
   });
 
-  function handleClick(e) {
-    // e.preventDefault();
-    console.log(experience);
-    console.log(personalInfo);
-  }
 
   return (
     <div className="UserInfoEntry">
@@ -65,13 +61,10 @@ function App() {
             />
           }
         />
+
+        <Route path="/template" element={<SelectTemp />} />
       </Routes>
 
-      <Link to={"/Resume"}>
-        <button className="CreatingResume" onClick={handleClick}>
-          Create Resume
-        </button>
-      </Link>
     </div>
   );
 }

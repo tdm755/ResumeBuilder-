@@ -1,6 +1,6 @@
 .ResumeInputFromUser {
   font-family: Arial, sans-serif;
-  max-width: 800px;
+  min-width: 800px;
   margin: 30px auto;
   padding: 20px;
   background-color: #f9f9f9;
