@@ -1,12 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Resume1 from "../components/Resume/Resume1";
 import { Link, Route, Routes } from "react-router-dom";
 import ResumeInputFromUser from "../components/Resume/ResumeInputFromUser/ResumeInputFromUser";
 
 function App() {
-  const [ClickedVal, setClickedVal] = useState(false);
-
   const [personalInfo, setPersonalInfo] = useState({
     name: "",
     email: "",
@@ -20,11 +18,8 @@ function App() {
     graduationYear: "",
   });
 
-  const [skills, setSkills] = useState({
-    skill1: "",
-    skill2: "",
-    skill3: "",
-  });
+  // Initialize skills state as an empty array
+  const [skills, setSkills] = useState([]);
 
   const [experience, setExperience] = useState({
     title: "",
@@ -36,7 +31,6 @@ function App() {
 
   function handleClick(e) {
     // e.preventDefault();
-
     console.log(experience);
     console.log(personalInfo);
   }
@@ -60,7 +54,6 @@ function App() {
           }
         />
 
-        
         <Route
           path={"/Resume"}
           element={
@@ -73,11 +66,12 @@ function App() {
           }
         />
       </Routes>
-      
-      <Link to={"/Resume"}>
-          <button className="CreatingResume" onClick={handleClick}>Create Resume</button>
-        </Link>
 
+      <Link to={"/Resume"}>
+        <button className="CreatingResume" onClick={handleClick}>
+          Create Resume
+        </button>
+      </Link>
     </div>
   );
 }

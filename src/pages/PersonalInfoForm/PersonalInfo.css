@@ -1,35 +1,51 @@
-.PersonalInformationOfTheCandidate input{
-    height: 40px;
-    border: 1px solid white;
-    border-radius: 4px;
-    background-color: transparent;
+.PersonalInformationOfTheCandidate {
+    background-color: #f8f9fa;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
     padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .PersonalInformationOfTheCandidate h1 {
+    font-size: 24px;
+    color: #343a40;
+    margin-bottom: 20px;
+  }
+  
+  .InputField {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .InputField label {
+    font-size: 16px;
+    color: #343a40;
+    margin-right: 10px;
+  }
+  
+  .InputField input[type="text"],[type='email'] {
+    flex: 1;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .InputField input[type="text"]:focus {
+    border-color: #007bff;
     outline: none;
-    
-}
+  }
 
-.PersonalInformationOfTheCandidate{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+  .InputField input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
 
-.PersonalInformationOfTheCandidate h1{
-    /* font-size: 44px; */
-    margin-bottom: 45px;
-}
-
-form .InputField{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    
-}
-
-.PersonalInformationOfTheCandidate form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
+  .add-section {
+    margin-top: 20px;
+  }
+  

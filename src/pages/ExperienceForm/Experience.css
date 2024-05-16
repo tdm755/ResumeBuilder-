@@ -1,46 +1,60 @@
-.ExperienceOfUser input{
-    height: 40px;
-    border: 1px solid white;
-    border-radius: 4px;
-    background-color: transparent;
+.ExperienceOfUser {
+    background-color: #f8f9fa;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
     padding: 20px;
-    outline: none;
-    padding: 20px;       
-}
-
-.ExperienceOfUser{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.ExperienceOfUser h1{
-    margin-bottom: 45px;
-}
-
-form .InputField{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    
-}
-
-.ExperienceOfUser form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.ExperienceOfUser textarea{
-    resize: none;
-    height: 40px;
-    border: 1px solid white;
+    margin-bottom: 20px;
+  }
+  
+  .ExperienceOfUser h1 {
+    font-size: 24px;
+    color: #343a40;
+    margin-bottom: 20px;
+  }
+  
+  .InputField {
+    margin-bottom: 15px;
+  }
+  
+  .InputField label {
+    font-size: 16px;
+    color: #343a40;
+  }
+  
+  .InputField input[type="text"],
+  .InputField textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
     border-radius: 4px;
-    background-color: transparent;
+    font-size: 16px;
+  }
+  
+  .InputField textarea {
+    height: 100px;
+  }
+  
+  .InputField input[type="text"]:focus,
+  .InputField textarea:focus {
+    border-color: #007bff;
     outline: none;
-    padding: 7px;
-
-    
-}
-
+  }
+  
+  .InputField textarea {
+    resize: vertical;
+  }
+  
+  .InputField input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .InputField input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
