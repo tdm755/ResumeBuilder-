@@ -1,0 +1,46 @@
+.ExperienceOfUser input{
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 20px;
+    outline: none;
+    padding: 20px;       
+}
+
+.ExperienceOfUser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ExperienceOfUser h1{
+    margin-bottom: 45px;
+}
+
+form .InputField{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.ExperienceOfUser form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ExperienceOfUser textarea{
+    resize: none;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: transparent;
+    outline: none;
+    padding: 7px;
+
+    
+}
+

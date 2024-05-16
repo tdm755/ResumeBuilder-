@@ -1,0 +1,25 @@
+.UserInfoEntry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: 100vh; 
+    gap: 2%;
+  }
+  
+
+  .UserInfoEntry button {
+    margin-top: 20px; 
+  }
+  
+
+.ResumeInputFromUser{
+    margin-top: 45px;
+    display: flex;
+    gap: 34px;
+}
+
+
+
+
+
