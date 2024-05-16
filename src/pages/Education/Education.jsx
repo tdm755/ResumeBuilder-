@@ -37,11 +37,42 @@ const EducationForm = ({education, setEducation}) => {
           />
         </div>
         <div className="InputField">
-          <label>Graduation Year:</label>
+          <label>Graduation Start Year:</label>
           <input
             type="text"
-            name="graduationYear"
-            value={education.graduationYear}
+            name="graduationStartYear"
+            value={education.graduationStartYear}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        
+        <div className="InputField">
+          <label>Graduation End Year:</label>
+          <input
+            type="text"
+            name="graduationEndYear"
+            value={education.graduationEndYear}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="InputField">
+          <label>Score:</label>
+          <input
+            type="text"
+            name="Score"
+            value={education.Score}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="InputField">
+          <label>Description:</label>
+          <input
+            type="text"
+            name="description"
+            value={education.description}
             onChange={handleInputChange}
             required
           />

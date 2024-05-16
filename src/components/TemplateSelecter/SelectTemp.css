@@ -1,0 +1,19 @@
+.SelectTemp img{
+    width: 200px;
+    
+}
+
+.SelectTemp{
+    display: flex;
+    flex-direction: column;
+    gap: 165px;
+    align-items: center;
+    margin-top: 55px;
+}
+
+.Templates{
+    display: flex;
+    gap: 30px;
+}
+
+

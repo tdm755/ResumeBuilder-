@@ -1,53 +1,126 @@
 import React from "react";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import { useState } from "react";
 import "./Resume.css";
+import ColorPicker from "../../ColorPicker/ColorPicker.jsx";
 
-const Resume1 = ({ personalInfo, education, experience, skills }) => (
-  <div className="resume_template">
-    <div className="header">
-      <h1>{personalInfo.name}</h1>
-      <div className="ContactInfo">
-        <p>
-          {personalInfo.email} | {personalInfo.phone}
-        </p>
-        <p>{personalInfo.address}</p>
-      </div>
-    </div>
-    <hr />
+function Resume1({ personalInfo, education, experience, skills }) {
+  
+  const [colorOfTem, setColorOfTem] = useState("#42CEAE");
 
-    <div className="rightSide">
-      <div className="leftSide">
 
-        <div className="section">
-          <h2>Skills</h2>
-          <ul>
-            {skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
-            ))}
-          </ul>
+  const downloadPDF = () => {
+    const input = document.getElementById('resume-template'); // ID of the resume container
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      const imgWidth = 210;
+      const pageHeight = 295;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+  
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+  
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+      pdf.save('resume.pdf');
+    });
+  };
+
+  function lightenHexColor(hexColor, percent) {
+    // Convert hexadecimal color to RGB
+    const r = parseInt(hexColor.slice(1, 3), 16);
+    const g = parseInt(hexColor.slice(3, 5), 16);
+    const b = parseInt(hexColor.slice(5, 7), 16);
+
+    // Calculate percentage of white to blend
+    const complement = 1 - percent / 100;
+
+    // Blend RGB components with white
+    const rLightened = Math.round(r * complement + 255 * percent / 100);
+    const gLightened = Math.round(g * complement + 255 * percent / 100);
+    const bLightened = Math.round(b * complement + 255 * percent / 100);
+
+    // Convert back to hexadecimal
+    const lightenedHex = `#${rLightened.toString(16)}${gLightened.toString(16)}${bLightened.toString(16)}`;
+
+    return lightenedHex;
+}
+
+
+  return (<>
+    <ColorPicker colorOfTem={colorOfTem} setColorOfTem={setColorOfTem} />
+    <div id="resume-template" className="resume_template1">
+
+      <div style={{ backgroundColor: colorOfTem }} className="TopSide">
+        <div className="NamePost">
+          <h1>{personalInfo.name}</h1>
+          <h3 style={{}}>{experience.title}</h3>
         </div>
-        
-      </div>
-      <div className="EducationSection">
-        <h2>Education</h2>
-        <div>
-          <h3>{education.degree}</h3>
-          <p>
-            {education.institution} | {education.graduationYear}
+        <div className="summary">
+          <p contentEditable>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+            quibusdam sequi et nobis at iure doloremque corporis alias! Neque
+            molestiae consequatur et! Aliquid!
           </p>
         </div>
       </div>
-      <div className="ExperienceSection">
-        <h2>Experience</h2>
-        <div>
-          <h3>{experience.title}</h3>
-          <p>
-            {experience.company} | {experience.startDate} - {experience.endDate}
-          </p>
-          <p>{experience.description}</p>
+      <div className="BottomSide">
+        <div className="leftSide">
+          <div style={{ backgroundColor: colorOfTem }} className="sideDesign"></div>
+          <div className="asidebar">
+            <div className="skillSec">
+              <h3>Skills</h3>
+              <ul>
+                {skills.map((item) => {
+                  return <li>{item}</li>;
+                })}
+              </ul>
+            </div>
+            <div className="contactSec">
+              <h3>Contact Info</h3>
+              <p>Mob : {personalInfo.phone}</p>
+              <p>Email : <a href={`mailto:${personalInfo.email}`} style={{color : `${lightenHexColor(colorOfTem, 50)}`}}>{personalInfo.email}</a></p>
+              <p>LinkedIn :<a href={personalInfo.LinkedIn} target="blank" style={{color : `${lightenHexColor(colorOfTem, 50)}`}}>LinkedIn</a> </p>
+              <p>GitHub :<a href={personalInfo.LinkedIn} target="blank" style={{color : `${lightenHexColor(colorOfTem, 50)}`}}>LinkedIn</a> </p>
+              {personalInfo.address === "" && <p>{personalInfo.address}</p>}
+            </div>
+          </div>
+
+        </div>
+
+        <div className="rightSide">
+          <div className="Experience">
+            <h3>Experience</h3>
+            <h4>
+              <p className="years">{experience.title} At {experience.company}</p>
+               <p> <span>{experience.startDate}</span> <span>-{experience.endDate}</span></p>
+            </h4>
+            <p className="descriptionEx">{experience.description}</p>
+          </div>
+          <div className="Education">
+            <h3>Education</h3>
+            <h4>
+              <p>{education.degree}   .{education.institution}</p>
+              <p className="years"> <span>{education.graduationStartYear}</span> <span>-{education.graduationEndYear}</span></p>
+            </h4>
+            <p >{education.description}</p>
+            {/* <p>{education.}</p> */}
+            {education.Score !== "" && <span>Score : {education.Score}</span>}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+    <button onClick={downloadPDF}>Download PDF</button>
+  </>
+  );
+}
 
 export default Resume1;

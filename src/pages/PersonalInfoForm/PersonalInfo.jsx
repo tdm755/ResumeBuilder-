@@ -26,6 +26,16 @@ const PersonalInfoForm = ({personalInfo, setPersonalInfo}) => {
           />
         </div>
         <div className='InputField'>
+          <label>WorkingAs:</label>
+          <input
+            type="text"
+            name="WorkingAs"
+            value={personalInfo.WorkingAs}
+            onChange={handleInputChange}
+            required
+          />
+          </div>
+        <div className='InputField'>
           <label>Email:</label>
           <input
             type="email"
@@ -41,6 +51,26 @@ const PersonalInfoForm = ({personalInfo, setPersonalInfo}) => {
             type="text"
             name="phone"
             value={personalInfo.phone}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className='InputField'>
+          <label>LinkedIn:</label>
+          <input
+            type="text"
+            name="LinkedIn"
+            value={personalInfo.LinkedIn}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className='InputField'>
+          <label>GitHub:</label>
+          <input
+            type="text"
+            name="GitHub"
+            value={personalInfo.GitHub}
             onChange={handleInputChange}
             required
           />
