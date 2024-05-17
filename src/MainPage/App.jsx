@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Resume1 from "../components/Resumes/Resume1/Resume1";
+import Resume2 from "../components/Resumes/Resume2/Resume2.jsx";
 import { Link, Route, Routes } from "react-router-dom";
 import ResumeInputFromUser from "../components/ResumeInputFromUser/ResumeInputFromUser";
 import SelectTemp from "../components/TemplateSelecter/SelectTemp";
@@ -67,10 +68,23 @@ function App() {
           }
         />
 
+
+
         <Route
           path={"/Resume"}
           element={
             <Resume1
+              personalInfo={personalInfo}
+              education={education}
+              experience={experience}
+              skills={skills}
+            />
+          }
+        />
+        <Route
+          path={"/Resume2"}
+          element={
+            <Resume2
               personalInfo={personalInfo}
               education={education}
               experience={experience}

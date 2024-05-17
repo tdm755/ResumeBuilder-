@@ -7,7 +7,9 @@ import './ResumeInputFromUser.css';
 import { Link } from 'react-router-dom';
 
 function ResumeInputFromUser({ personalInfo, education, experience, skills, setPersonalInfo, setEducation, setExperience, setSkills }) {
+  
   const [additionalEducationSections, setAdditionalEducationSections] = useState([]);
+
   const [additionalExperienceSections, setAdditionalExperienceSections] = useState([]);
 
   const addEducationSection = () => {
@@ -52,6 +54,11 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
     updatedSections.splice(index, 1);
     setAdditionalExperienceSections(updatedSections);
   };
+
+
+  function handleClick() {
+    console.log(education);
+  }
 
   return (
     <>
@@ -104,6 +111,7 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
           Preview
         </button>
       </Link>
+      {/* <button onClick={handleClick}>click To Log</button> */}
 
     </>
     

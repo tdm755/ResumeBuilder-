@@ -2,22 +2,14 @@ import React, { useEffect } from "react";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { useState } from "react";
-import "./Resume.css";
+import "./Resume2.css";
 import ColorPicker from "../../ColorPicker/ColorPicker.jsx";
 import FontSelector from "../../FontSelector/FontSelector.jsx";
 
-function Resume1({ personalInfo, education, experience, skills }) {
+function Resume2({ personalInfo, education, experience, skills }) {
   
   const [colorOfTem, setColorOfTem] = useState("");
   const [fontStyle, setFontStyle] = useState("");
-
-  // function ChangeFontStyle(styleOfFont) {
-  //   document.querySelector("body").style.fontFamily = styleOfFont;
-  // }
-
-  // useEffect(()=>{
-  //   ChangeFontStyle();
-  // },[fontStyle])
 
 
   const downloadPDF = () => {
@@ -43,6 +35,8 @@ function Resume1({ personalInfo, education, experience, skills }) {
       pdf.save('resume.pdf');
     });
   };
+  
+
 
   function lightenHexColor(hexColor, percent) {
     // Convert hexadecimal color to RGB
@@ -65,19 +59,21 @@ function Resume1({ personalInfo, education, experience, skills }) {
 }
 
 
+
   return (<>
 
   <div className="ColorFonts">
       <FontSelector />
       <ColorPicker colorOfTem={colorOfTem} setColorOfTem={setColorOfTem} />
-      <button className="DownloadPdf" onClick={downloadPDF}>Download PDF</button>
+  <button className="DownloadPdf" onClick={downloadPDF}>Download PDF</button>
   </div>
 
     <div className="ToDownLoadFlex">   
     
     <div id="resume-template" className="resume_template1">
 
-      <div style={{ backgroundColor: colorOfTem }} className="TopSide">
+      <div className="TopSide">
+        <div className="image"><img src="" alt="" /></div>
         <div className="NamePost">
           <h1>{personalInfo.name}</h1>
           <h3 style={{}}>{experience.title}</h3>
@@ -136,9 +132,10 @@ function Resume1({ personalInfo, education, experience, skills }) {
         </div>
       </div>
     </div>
+    
     </div>
   </>
   );
 }
 
-export default Resume1;
+export default Resume2;

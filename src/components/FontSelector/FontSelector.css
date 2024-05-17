@@ -1,0 +1,25 @@
+select{
+    height: 40px;
+    border-radius:  0px 4px  4px 0px;
+    /* border-left: none; */
+    padding: 0px 10px 0px 10px;
+    outline: none;
+    background-color: transparent;
+}
+
+.fonts{
+    display: flex;
+    align-items: center;
+    
+}
+
+.fonts p{
+    height: 40px;
+    width: fit-content;
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    align-items: center;
+    border: 1px solid grey;
+    border-right: none;
+    border-radius:  4px 0px  0px 4px;
+}
