@@ -44,24 +44,30 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
         personalInfo={personalInfo}
         setPersonalInfo={setPersonalInfo}
       />
-      <EducationForm
-        education={education}
-        setEducation={setEducation}
-      />
-  
-    
-      <div className="add-section">
-        <button onClick={addEducationSection}>Add Education Section</button>
-      </div>
-      <ExperienceForm
-        experience={experience}
-        setExperience={setExperience}
-      />
 
-  
-      <div className="add-section">
-        <button onClick={addExperienceSection}>Add Experience Section</button>
+      <div className="educationbar">
+          <EducationForm
+            education={education}
+            setEducation={setEducation}
+          /> 
+        
+          <div className="add-section">
+            <button onClick={addEducationSection}>Add Education Section</button>
+          </div>
       </div>
+
+      <div className="experiencebar">
+          <ExperienceForm
+            experience={experience}
+            setExperience={setExperience}
+          />
+      
+          <div className="add-section">
+            <button onClick={addExperienceSection}>Add Experience Section</button>
+          </div>
+      </div>
+
+
       <SkillsForm
         skills={skills}
         setSkills={setSkills}

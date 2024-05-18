@@ -1,6 +1,6 @@
 .PersonalInformationOfTheCandidate {
     background-color: #f8f9fa;
-    border: 2px solid #ced4da;
+    border: 2px solid #8697C4;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
@@ -25,19 +25,28 @@
     margin-right: 10px;
   }
   
-  .InputField input[type="text"],[type='email'] {
+  .InputField input[type="text"]{
     flex: 1;
     height: 40px;
     padding: 10px;
-    border: 1px solid #ced4da;
+    border: 1px solid #8697C4;
     border-radius: 4px;
     font-size: 16px;
   }
-  
-  .InputField input[type="text"]:focus {
-    border-color: #007bff;
-    outline: none;
+
+   .InputField input[type='email'] {
+    flex: 1;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #e9e4f2;
+    border-radius: 4px;
+    font-size: 16px;
   }
+/*   
+  .InputField input[type="text"]:focus {
+    border-color: #f7f4fc;
+    outline: none;
+  } */
 
   .InputField input[type="email"]:focus {
     border-color: #007bff;

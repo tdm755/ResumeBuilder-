@@ -1,0 +1,220 @@
+.heroSection{
+    width: 100%;
+    height: 800px;
+    /* background-color: aliceblue; */
+        
+}
+
+.navBar{
+    width: 100%;
+    height: 60px;
+    background-color: beige;
+}
+
+.topSide{
+    height: 80%;
+    width: 100%;
+    /* background-color: antiquewhite; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftSideH{
+    width: 30%;
+    height: 70%;
+    /* background-color: aquamarine; */
+    background-image: url('../../assets/Bgimg.png');
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    position: relative;
+    margin-left: 30px;
+}
+
+.leftSideH img{
+    height: 370px;
+    width: 290px;
+    position: absolute;
+    animation-name: resumeAnimation; 
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    /* animation-delay: 1s; */
+    
+}
+
+
+@keyframes resumeAnimation {
+    from{
+        bottom: -99px;   
+        opacity: 0.2;
+    }to{
+        bottom: 20px;   
+        opacity: 1;
+    }
+}
+
+.colorOptions{
+    z-index: 1;
+    height: 97px;
+    width: 152px;
+    background-image: url(/src/assets/colorOptions.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 80px;
+    left: 31px;
+    border-radius: 19px;
+    border: 1px solid rgb(67, 67, 174);
+    animation-name: colorAnimation; 
+    animation-duration: 1s;
+    animation-delay: 0.3s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    left: -99px;   
+    opacity: 0;
+    /* animation-delay: 1s; */
+}
+
+@keyframes colorAnimation {
+    from{
+        left: -99px;   
+        opacity: 0;
+    }to{
+        left: 31px;   
+        opacity: 1;
+    }
+}
+
+
+.fontOptions{
+    z-index: 1;
+    height: 97px;
+    width: 152px;
+    background-image: url(/src/assets/google-fontsimg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 120px;
+    right: 15px;  
+    border-radius: 19px;
+    border: 1px solid rgb(67, 67, 174);
+    animation-name: fontAnimation;
+    animation-duration: 1s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    opacity: 0;
+        
+}
+
+
+@keyframes fontAnimation {
+    from{
+        right: -99px;   
+        opacity: 0;
+    }to{
+        right: 15px;   
+        opacity: 1;
+    }
+}
+
+
+
+
+.RightSideH{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 90px 40px 0px 110px;
+
+    
+}
+
+.RightSideH h1{
+    font-size: 54px;
+}
+
+.RightSideH p{
+    font-size: 28px;
+}
+
+.RightSideH button{
+    width: 270px;
+    height: 50px;
+    border: none;
+    background-image: linear-gradient(to right, lightblue, rgb(67, 67, 174));
+    animation-name: btnReverse;
+
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+
+.RightSideH button:hover{
+    /* border-radius: 20px 50px 20px 50px; */
+    animation-name: btnAnimation;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+   
+}
+
+@keyframes btnAnimation {
+    from{
+    border-radius: 50px 20px 50px 20px;
+
+    }
+    to{
+    border-radius: 20px 50px 20px 50px;
+
+    }
+}
+
+@keyframes btnReverse {
+    from{
+       border-radius: 20px 50px 20px 50px;
+
+    }
+    to{
+        border-radius: 50px 20px 50px 20px;
+    }
+}
+
+.SummaryPart p{
+    /* font-size: 18px;
+    width: 70%;
+    color: rgb(88, 87, 87);*/
+    margin: auto; 
+    text-align-last: center;
+    width: 75%;
+    font-size: 20px;
+    color: #313B47;
+    
+    
+}
+
+
+.FeatureSection{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    margin-top: 100px;
+}
+
+.Features{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+

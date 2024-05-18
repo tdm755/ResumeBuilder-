@@ -7,6 +7,14 @@ import ResumeInputFromUser from "../components/ResumeInputFromUser/ResumeInputFr
 import SelectTemp from "../components/TemplateSelecter/SelectTemp";
 import { colorContext } from "../components/ColorPicker/ColorPicker.js";
 import { setColorContext } from "../components/ColorPicker/ColorPicker.js";
+import FrontPages from "./FrontPages/FrontPages.jsx";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init({
+  offset : 100,
+  duration : 800,
+});
 
 function App() {
 
@@ -54,9 +62,11 @@ function App() {
   return (
   
     <div className="UserInfoEntry">
+      
       <Routes>
+        <Route path="/" element={<FrontPages />} />
         <Route
-          path="/"
+          path="/userInput"
           element={
             <ResumeInputFromUser
               personalInfo={personalInfo}
