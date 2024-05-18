@@ -10,6 +10,9 @@ import { setColorContext } from "../components/ColorPicker/ColorPicker.js";
 
 function App() {
 
+
+  const [colorOfTem, setColorOfTem] = useState("");
+  const [fontStyle, setFontStyle] = useState("");
   
 
   const [personalInfo, setPersonalInfo] = useState({
@@ -22,14 +25,14 @@ function App() {
     address: "",
   });
 
-  const [education, setEducation] = useState({
+  const [education, setEducation] = useState([{
     degree: "BCA",
     institution: "Hindustan institute Of Science And Technology",
     graduationStartYear: "2022",
     graduationEndYear: "2025",
-    Score : "",
+    Score : "98",
     description: "Describe your responsibilities and achievements in terms of impact and results. Use examples but keep it short.",
-  });
+  }]);
 
 
 
@@ -39,13 +42,13 @@ function App() {
 
 
 
-  const [experience, setExperience] = useState({
+  const [experience, setExperience] = useState([{
     title: "Frontend Web Developer",
     company: "Geek Rider",
     startDate: "May 15",
     endDate: "Aug 15",
     description: "Describe your responsibilities and achievements in terms of impact and results. Use examples but keep it short.",
-  });
+  }]);
 
 
   return (
@@ -71,9 +74,11 @@ function App() {
 
 
         <Route
-          path={"/Resume"}
+          path={"/Resume1"}
           element={
             <Resume1
+              colorOfTem={colorOfTem}
+              setColorOfTem={setColorOfTem}
               personalInfo={personalInfo}
               education={education}
               experience={experience}
@@ -85,6 +90,8 @@ function App() {
           path={"/Resume2"}
           element={
             <Resume2
+              colorOfTem={colorOfTem}
+              setColorOfTem={setColorOfTem}
               personalInfo={personalInfo}
               education={education}
               experience={experience}

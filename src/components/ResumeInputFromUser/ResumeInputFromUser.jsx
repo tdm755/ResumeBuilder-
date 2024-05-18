@@ -8,57 +8,34 @@ import { Link } from 'react-router-dom';
 
 function ResumeInputFromUser({ personalInfo, education, experience, skills, setPersonalInfo, setEducation, setExperience, setSkills }) {
   
-  const [additionalEducationSections, setAdditionalEducationSections] = useState([]);
 
-  const [additionalExperienceSections, setAdditionalExperienceSections] = useState([]);
 
   const addEducationSection = () => {
-    setAdditionalEducationSections([...additionalEducationSections, {
-      degree: '',
-      institution: '',
-      graduationYear: ''
-    }]);
+    setEducation((preVal)=>{
+      return [...preVal, {
+        degree: "BCA",
+        institution: "Hindustan institute Of Science And Technology",
+        graduationStartYear: "2022",
+        graduationEndYear: "2025",
+        Score : "",
+        description: "Describe your responsibilities and achievements in terms of impact and results. Use examples but keep it short.",
+      }]
+    });
   };
 
   const addExperienceSection = () => {
-    setAdditionalExperienceSections([...additionalExperienceSections, {
-      title: '',
-      company: '',
-      startDate: '',
-      endDate: '',
-      description: ''
-    }]);
+    setExperience((preVal)=>{
+      return [...preVal, {
+        title: "Frontend Web Developer",
+        company: "Geek Rider",
+        startDate: "May 15",
+        endDate: "Aug 15",
+        description: "Describe your responsibilities and achievements in terms of impact and results. Use examples but keep it short.",
+      }]
+    });
   };
 
 
-  const handleEducationChange = (index, updatedEducation) => {
-    const updatedSections = [...additionalEducationSections];
-    updatedSections[index] = updatedEducation;
-    setAdditionalEducationSections(updatedSections);
-  };
-
-  const handleExperienceChange = (index, updatedExperience) => {
-    const updatedSections = [...additionalExperienceSections];
-    updatedSections[index] = updatedExperience;
-    setAdditionalExperienceSections(updatedSections);
-  };
-
-  const removeEducationSection = (index) => {
-    const updatedSections = [...additionalEducationSections];
-    updatedSections.splice(index, 1);
-    setAdditionalEducationSections(updatedSections);
-  };
-
-  const removeExperienceSection = (index) => {
-    const updatedSections = [...additionalExperienceSections];
-    updatedSections.splice(index, 1);
-    setAdditionalExperienceSections(updatedSections);
-  };
-
-
-  function handleClick() {
-    console.log(education);
-  }
 
   return (
     <>
@@ -71,16 +48,8 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
         education={education}
         setEducation={setEducation}
       />
-      {/* Additional Education Sections */}
-      {additionalEducationSections.map((educationData, index) => (
-        <div key={index}>
-          <EducationForm
-            education={educationData}
-            setEducation={(updatedEducation) => handleEducationChange(index, updatedEducation)}
-          />
-          <button onClick={() => removeEducationSection(index)}>Remove Education Section</button>
-        </div>
-      ))}
+  
+    
       <div className="add-section">
         <button onClick={addEducationSection}>Add Education Section</button>
       </div>
@@ -88,16 +57,8 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
         experience={experience}
         setExperience={setExperience}
       />
-      {/* Additional Experience Sections */}
-      {additionalExperienceSections.map((experienceData, index) => (
-        <div key={index}>
-          <ExperienceForm
-            experience={experienceData}
-            setExperience={(updatedExperience) => handleExperienceChange(index, updatedExperience)}
-          />
-          <button onClick={() => removeExperienceSection(index)}>Remove Experience Section</button>
-        </div>
-      ))}
+
+  
       <div className="add-section">
         <button onClick={addExperienceSection}>Add Experience Section</button>
       </div>
@@ -111,7 +72,6 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
           Preview
         </button>
       </Link>
-      {/* <button onClick={handleClick}>click To Log</button> */}
 
     </>
     

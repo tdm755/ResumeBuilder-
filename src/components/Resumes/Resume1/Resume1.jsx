@@ -6,18 +6,8 @@ import "./Resume.css";
 import ColorPicker from "../../ColorPicker/ColorPicker.jsx";
 import FontSelector from "../../FontSelector/FontSelector.jsx";
 
-function Resume1({ personalInfo, education, experience, skills }) {
-  
-  const [colorOfTem, setColorOfTem] = useState("");
-  const [fontStyle, setFontStyle] = useState("");
+function Resume1({ personalInfo, education, experience, skills, colorOfTem, setColorOfTem }) {
 
-  // function ChangeFontStyle(styleOfFont) {
-  //   document.querySelector("body").style.fontFamily = styleOfFont;
-  // }
-
-  // useEffect(()=>{
-  //   ChangeFontStyle();
-  // },[fontStyle])
 
 
   const downloadPDF = () => {
@@ -30,10 +20,10 @@ function Resume1({ personalInfo, education, experience, skills }) {
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
       let heightLeft = imgHeight;
       let position = 0;
-  
+
       pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
       heightLeft -= pageHeight;
-  
+
       while (heightLeft >= 0) {
         position = heightLeft - imgHeight;
         pdf.addPage();
@@ -62,82 +52,98 @@ function Resume1({ personalInfo, education, experience, skills }) {
     const lightenedHex = `#${rLightened.toString(16)}${gLightened.toString(16)}${bLightened.toString(16)}`;
 
     return lightenedHex;
-}
+  }
 
 
-  return (<>
+  return (<div className="FlexReverse">
 
-  <div className="ColorFonts">
+    <div className="ColorFonts">
       <FontSelector />
       <ColorPicker colorOfTem={colorOfTem} setColorOfTem={setColorOfTem} />
       <button className="DownloadPdf" onClick={downloadPDF}>Download PDF</button>
-  </div>
+    </div>
 
-    <div className="ToDownLoadFlex">   
-    
-    <div id="resume-template" className="resume_template1">
+    <hr />
 
-      <div style={{ backgroundColor: colorOfTem }} className="TopSide">
-        <div className="NamePost">
-          <h1>{personalInfo.name}</h1>
-          <h3 style={{}}>{experience.title}</h3>
+    <div className="ToDownLoadFlex">
+
+      <div id="resume-template" className="resume_template1">
+
+        <div style={{ backgroundColor: colorOfTem }} className="TopSide">
+          <div className="NamePost">
+            <h1>{personalInfo.name}</h1>
+            <h3 style={{}}>{experience.title}</h3>
+          </div>
+          <div className="summary">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+              quibusdam sequi et nobis at iure doloremque corporis alias! Neque
+              molestiae consequatur et! Aliquid!
+            </p>
+          </div>
         </div>
-        <div className="summary">
-          <p contentEditable>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-            quibusdam sequi et nobis at iure doloremque corporis alias! Neque
-            molestiae consequatur et! Aliquid!
-          </p>
-        </div>
-      </div>
-      <div className="BottomSide">
-        <div className="leftSide">
-          <div style={{ backgroundColor: colorOfTem }} className="sideDesign"></div>
-          <div className="asidebar">
-            <div className="skillSec">
-              <h3>Skills</h3>
-              <ul>
-                {skills.map((item) => {
-                  return <li>{item}</li>;
+        <div className="BottomSide">
+          <div className="leftSide">
+            <div style={{ backgroundColor: colorOfTem }} className="sideDesign"></div>
+            <div className="asidebar">
+              <div className="skillSec">
+                <h3>Skills</h3>
+                <ul>
+                  {skills.map((item) => {
+                    return <li>{item}</li>;
+                  })}
+                </ul>
+              </div>
+              <div className="contactSec">
+                <h3>Contact Info</h3>
+                <p>Mob : {personalInfo.phone}</p>
+                <p>Email : <a href={`mailto:${personalInfo.email}`} style={{ color: `${lightenHexColor(colorOfTem, 10)}`, fontWeight: '600' }}>{personalInfo.email}</a></p>
+                <p>LinkedIn :<a href={personalInfo.LinkedIn} target="blank" style={{ color: `${lightenHexColor(colorOfTem, 10)}`, fontWeight: '600' }}>LinkedIn</a> </p>
+                <p>GitHub :<a href={personalInfo.LinkedIn} target="blank" style={{ color: `${lightenHexColor(colorOfTem, 10)}`, fontWeight: '600' }}>GitHub</a> </p>
+                {personalInfo.address === "" && <p>{personalInfo.address}</p>}
+              </div>
+            </div>
+
+          </div>
+            <div className="line"></div>
+          <div className="rightSide">
+
+            <div className="Experience">
+              <h3>Experience</h3>
+              <div className="ExpeItems">
+                {experience.map((item, index) => {
+                  return <div key={index} className={`item item${index}`}>
+                    <h4>
+                      <p className="years">{item.title} At {item.company}</p>
+                      <p className="TimePeriod"> <span>{item.startDate}</span> <span>-{item.endDate}</span></p>
+                    </h4>
+                    <p className="descriptionEx">{item.description}</p>
+                  </div>
                 })}
-              </ul>
+              </div>
             </div>
-            <div className="contactSec">
-              <h3>Contact Info</h3>
-              <p>Mob : {personalInfo.phone}</p>
-              <p>Email : <a href={`mailto:${personalInfo.email}`} style={{color : `${lightenHexColor(colorOfTem, 10)}`, fontWeight : '600'}}>{personalInfo.email}</a></p>
-              <p>LinkedIn :<a href={personalInfo.LinkedIn} target="blank" style={{color : `${lightenHexColor(colorOfTem, 10)}`, fontWeight : '600'}}>LinkedIn</a> </p>
-              <p>GitHub :<a href={personalInfo.LinkedIn} target="blank" style={{color : `${lightenHexColor(colorOfTem, 10)}`, fontWeight : '600'}}>GitHub</a> </p>
-              {personalInfo.address === "" && <p>{personalInfo.address}</p>}
+
+            <div className="Education">
+              <h3>Education</h3>
+              <div className="ExpeItems">
+                {education.map((item, index) => {
+                  return <div key={index} className={`item item${index}`}>
+                    <h4>
+                      <p className="years">{item.degree} At {item.institution}</p>
+                      <p className="TimePeriod"> <span>{item.graduationStartYear}</span> <span>-{item.graduationEndYear}</span></p>
+                    </h4>
+                    <p className="descriptionEdu">{item.description}</p>
+                    {item.Score !== "" && <span>Score : {item.Score}</span>}
+                  </div>
+                })}
+              </div>
             </div>
-          </div>
 
-        </div>
-
-        <div className="rightSide">
-          <div className="Experience">
-            <h3>Experience</h3>
-            <h4>
-              <p className="years">{experience.title} At {experience.company}</p>
-               <p> <span>{experience.startDate}</span> <span>-{experience.endDate}</span></p>
-            </h4>
-            <p className="descriptionEx">{experience.description}</p>
-          </div>
-          <div className="Education">
-            <h3>Education</h3>
-            <h4>
-              <p>{education.degree}   .{education.institution}</p>
-              <p className="years"> <span>{education.graduationStartYear}</span> <span>-{education.graduationEndYear}</span></p>
-            </h4>
-            <p >{education.description}</p>
-            {/* <p>{education.}</p> */}
-            {education.Score !== "" && <span>Score : {education.Score}</span>}
           </div>
         </div>
       </div>
     </div>
-    </div>
-  </>
+  </div>
   );
 }
 

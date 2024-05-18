@@ -1,0 +1,90 @@
+import React, { useState } from "react";
+import './Education.css'
+
+const EducationForm = ({education, setEducation}) => {
+
+  // Handler for input changes
+  const handleInputChange = (index, e) => {
+    const { name, value } = e.target;
+    const updatedEducation = education.map((item, i) =>{
+
+      {i === index ? { ...item, [name]: value } : item}
+    }
+    );
+    setEducation(updatedEducation);
+  };
+
+  return (
+    <div className="EducationOfStudents">
+      <h1>Education</h1>
+      <form action="">
+      {education.map((item, index) => {
+        return <> <div className='InputField' >
+          <label>Degree:</label>
+          <input
+            type="text"
+            name='degree'
+            value={item.degree}
+            onChange={(e) => handleInputChange(index, e)}
+            required
+          />
+        </div>
+          <div className='InputField'>
+            <label>Institution:</label>
+            <input
+              type="text"
+              name='institution'
+              value={item.institution}
+              onChange={(e) => handleInputChange(index, e)}
+              required
+            />
+          </div>
+          <div className='InputField'>
+            <label>Graduation Start Year:</label>
+            <input
+              type="text"
+              name='graduationStartYear'
+              value={item.graduationStartYear}
+              onChange={(e) => handleInputChange(index, e)}
+              required
+            />
+          </div>
+          <div className='InputField'>
+            <label>Graduation End Date:</label>
+            <input
+              type="text"
+              name='graduationEndYear'
+              value={item.graduationEndYear}
+              onChange={(e) => handleInputChange(index, e)}
+              required
+            />
+          </div>
+          <div className='InputField'>
+            <label>Score:</label>
+            <input
+              type="text"
+              name='Score'
+              value={item.Score}
+              onChange={(e) => handleInputChange(index, e)}
+              required
+            />
+          </div>
+          <div className="InputField">
+          <label>Description:</label>
+          <input
+            type="text"
+            name='description'
+            value={item.description}
+            onChange={(e) => handleInputChange(index, e)}
+            required
+          />
+        </div>
+
+        </>
+      })}
+      </form>          
+    </div>
+  );
+};
+
+export default EducationForm;

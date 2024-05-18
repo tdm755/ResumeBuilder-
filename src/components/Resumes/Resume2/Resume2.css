@@ -1,0 +1,132 @@
+/* .ToDownLoadFlex{
+    display: flex;
+} */
+
+.NamePost h1{
+font-size: 54px;
+}
+
+.resume_template2 {
+    display: flex;
+    max-width: 900px;
+    height: 1100px;
+    /* margin: 20px auto; */
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+.leftSide2{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    align-items: center;
+    background-color: rgb(211, 204, 248);
+    justify-content: space-between;
+    padding: 70px 20px;
+    /* gap: 20px; */
+
+}
+
+
+  .Education2{
+    width: 100%;
+    height: fit-content;
+    /* background-color: rgb(147, 130, 164); */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .Education2 h3{
+    font-size: 30px;
+  }
+  
+  
+  
+  
+  .Education2 h4, .Experience2 h4 {
+    /* font-size: ; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+
+  .contactSec2{
+    width: 100%;
+    height: fit-content;
+  }
+  
+  .contactSec2 a{
+   text-decoration:0.0001px solid underline;
+    cursor: pointer;
+   
+  }
+  
+  .contactSec2 p {
+    margin: 8px 0;
+  }
+
+
+
+
+  .skillSec2{
+    height: fit-content;
+    width: 100%;
+  }
+  
+  .skillSec2 ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .skillSec2 ul li {
+    margin-bottom: 8px;
+  }
+
+
+
+
+
+  .rightSide2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    height: 100%;
+    width: 62%;  
+    gap: 15%;
+    padding: 20px 20px;  
+  }
+
+
+  .TopSide2{
+    display: flex;
+    flex-direction: column;
+    gap: 13%;
+    height: 20%;
+    /* background-color: blueviolet; */
+    
+  }
+
+
+
+  .Experience2{
+    /* background-color: rgb(159, 142, 176); */
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .Experience2 h4 {
+    /* font-size: ; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+    
+  

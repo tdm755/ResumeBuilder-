@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
 import './ColorPicker.css'
-
 import { useContext } from 'react';
 
-function ColorPicker({colorOfTem, setColorOfTem}) {   
+
+function ColorPicker(props) {   
 
     function handleChange(e) {
-        setColorOfTem(e.target.value)
+        props.setColorOfTem(e.target.value)
+        
     }
 
   return (
     
     <div className='ColorPicker'>
         
-        <div className="colorDisplay" style={{border :`2px solid ${colorOfTem}`}}> 
-           <p><span style={{backgroundColor : colorOfTem}}></span> {colorOfTem}</p>
+        <div className="colorDisplay" style={{border :`1px solid ${props.colorOfTem}`}}> 
+           <p><span style={{backgroundColor : props.colorOfTem}}></span> {props.colorOfTem}</p>
             <input type="color" onChange={handleChange} />
         </div>
       

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { useState } from "react";
@@ -6,14 +6,13 @@ import "./Resume2.css";
 import ColorPicker from "../../ColorPicker/ColorPicker.jsx";
 import FontSelector from "../../FontSelector/FontSelector.jsx";
 
-function Resume2({ personalInfo, education, experience, skills }) {
+function Resume2({ personalInfo, education, experience, skills, colorOfTem, setColorOfTem }) {
   
-  const [colorOfTem, setColorOfTem] = useState("");
-  const [fontStyle, setFontStyle] = useState("");
+  const linkRef = useRef(null);
 
 
   const downloadPDF = () => {
-    const input = document.getElementById('resume-template'); // ID of the resume container
+    const input = document.getElementById('resume-template2'); // ID of the resume container
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF();
@@ -35,62 +34,26 @@ function Resume2({ personalInfo, education, experience, skills }) {
       pdf.save('resume.pdf');
     });
   };
-  
 
-
-  function lightenHexColor(hexColor, percent) {
-    // Convert hexadecimal color to RGB
-    const r = parseInt(hexColor.slice(1, 3), 16);
-    const g = parseInt(hexColor.slice(3, 5), 16);
-    const b = parseInt(hexColor.slice(5, 7), 16);
-
-    // Calculate percentage of white to blend
-    const complement = 1 - percent / 100;
-
-    // Blend RGB components with white
-    const rLightened = Math.round(r * complement + 255 * percent / 100);
-    const gLightened = Math.round(g * complement + 255 * percent / 100);
-    const bLightened = Math.round(b * complement + 255 * percent / 100);
-
-    // Convert back to hexadecimal
-    const lightenedHex = `#${rLightened.toString(16)}${gLightened.toString(16)}${bLightened.toString(16)}`;
-
-    return lightenedHex;
-}
-
-
-
-  return (<>
+  return (<div className="FlexReverse">
 
   <div className="ColorFonts">
       <FontSelector />
       <ColorPicker colorOfTem={colorOfTem} setColorOfTem={setColorOfTem} />
-  <button className="DownloadPdf" onClick={downloadPDF}>Download PDF</button>
+      <button className="DownloadPdf" onClick={downloadPDF}>Download PDF</button>
   </div>
+
+  <hr />
 
     <div className="ToDownLoadFlex">   
     
-    <div id="resume-template" className="resume_template1">
+     <div id="resume-template2" className="resume_template2">
 
-      <div className="TopSide">
-        <div className="image"><img src="" alt="" /></div>
-        <div className="NamePost">
-          <h1>{personalInfo.name}</h1>
-          <h3 style={{}}>{experience.title}</h3>
-        </div>
-        <div className="summary">
-          <p contentEditable>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-            quibusdam sequi et nobis at iure doloremque corporis alias! Neque
-            molestiae consequatur et! Aliquid!
-          </p>
-        </div>
-      </div>
-      <div className="BottomSide">
-        <div className="leftSide">
-          <div style={{ backgroundColor: colorOfTem }} className="sideDesign"></div>
-          <div className="asidebar">
-            <div className="skillSec">
+        <div className="leftSide2" style={{ backgroundColor: colorOfTem }}>         
+
+          {/* <div style={{ backgroundColor: colorOfTem }} className="sideDesign"></div> */}
+          {/* <div className="asidebar"> */}
+            <div className="skillSec2">
               <h3>Skills</h3>
               <ul>
                 {skills.map((item) => {
@@ -98,44 +61,76 @@ function Resume2({ personalInfo, education, experience, skills }) {
                 })}
               </ul>
             </div>
-            <div className="contactSec">
+
+            <div className="Education2">
+              <h3>Education</h3>
+              <div className="ExpeItems">
+                {education.map((item, index) => {
+                  return <div key={index} className={`item item${index}`}>
+                    <h4>
+                      <p className="years">{item.degree} At {item.institution}</p>
+                      <p className="TimePeriod"> <span>{item.graduationStartYear}</span> <span>-{item.graduationEndYear}</span></p>
+                    </h4>
+                    <p className="descriptionEdu">{item.description}</p>
+                    {item.Score !== "" && <span>Score : {item.Score}</span>}
+                  </div>
+                })}
+              </div>
+            </div>
+            
+            <div className="contactSec2">
               <h3>Contact Info</h3>
               <p>Mob : {personalInfo.phone}</p>
-              <p>Email : <a href={`mailto:${personalInfo.email}`} style={{color : `${lightenHexColor(colorOfTem, 10)}`, fontWeight : '600'}}>{personalInfo.email}</a></p>
-              <p>LinkedIn :<a href={personalInfo.LinkedIn} target="blank" style={{color : `${lightenHexColor(colorOfTem, 10)}`, fontWeight : '600'}}>LinkedIn</a> </p>
-              <p>GitHub :<a href={personalInfo.LinkedIn} target="blank" style={{color : `${lightenHexColor(colorOfTem, 10)}`, fontWeight : '600'}}>GitHub</a> </p>
+              <p>Email : <a href={`mailto:${personalInfo.email}`} ref = {linkRef}>{personalInfo.email}</a></p>
+              <p>LinkedIn :<a href={personalInfo.LinkedIn} target="blank" ref = {linkRef}>LinkedIn</a> </p>
+              <p>GitHub :<a href={personalInfo.LinkedIn} target="blank" ref = {linkRef}>GitHub</a> </p>
               {personalInfo.address === "" && <p>{personalInfo.address}</p>}
             </div>
-          </div>
+          {/* </div> */}
 
         </div>
 
-        <div className="rightSide">
-          <div className="Experience">
-            <h3>Experience</h3>
-            <h4>
-              <p className="years">{experience.title} At {experience.company}</p>
-               <p> <span>{experience.startDate}</span> <span>-{experience.endDate}</span></p>
-            </h4>
-            <p className="descriptionEx">{experience.description}</p>
+
+
+    <div className="rightSide2">
+
+          <div className="TopSide2">
+            <div className="NamePost">
+              <h1>{personalInfo.name}</h1>
+              <h3>{experience.title}</h3>
+            </div>
+            <div className="summary2">
+            <p >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+              quibusdam sequi et nobis at iure doloremque corporis alias! Neque
+              molestiae consequatur et! Aliquid!
+            </p>
           </div>
-          <div className="Education">
-            <h3>Education</h3>
+          </div> 
+          
+
+          <div className="Experience2">
+           <h3>Experience</h3>
+           <div className="ExpeItems">
+          {experience.map((item, index)=>{
+            return <div key={index} className={`item item${index}`}>
             <h4>
-              <p>{education.degree}   .{education.institution}</p>
-              <p className="years"> <span>{education.graduationStartYear}</span> <span>-{education.graduationEndYear}</span></p>
+              <p className="years">{item.title} At {item.company}</p>
+               <p> <span>{item.startDate}</span> <span>-{item.endDate}</span></p>
             </h4>
-            <p >{education.description}</p>
-            {/* <p>{education.}</p> */}
-            {education.Score !== "" && <span>Score : {education.Score}</span>}
+            <p className="descriptionEx">{item.description}</p>
+            </div>
+          })}
           </div>
-        </div>
+          </div>
+
+      </div>
       </div>
     </div>
-    
-    </div>
-  </>
+
+  </div>
   );
 }
 
 export default Resume2;
+

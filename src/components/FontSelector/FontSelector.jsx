@@ -44,7 +44,7 @@ function FontSelector(props) {
  
   return (
      <div className='fonts'>
-       <p style={{fontFamily : selectedFont}}>Select Resume Font</p>
+       {/* <p style={{fontFamily : selectedFont}}>Select Resume Font</p> */}
      <select name="Fonts" id="Fonts" onClick={handleChangeSe}>
         {ApiData.map((item)=>{
           
