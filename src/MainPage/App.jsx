@@ -34,8 +34,8 @@ function App() {
   });
 
   const [education, setEducation] = useState([{
-    degree: "BCA",
-    institution: "Hindustan institute Of Science And Technology",
+    degree: "PHD",
+    institution: "Saraswati Mandir High School",
     graduationStartYear: "2022",
     graduationEndYear: "2025",
     Score : "98",

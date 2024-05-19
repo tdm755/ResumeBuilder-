@@ -12,6 +12,23 @@ const EducationForm = ({ education, setEducation }) => {
     setEducation(updatedEducation);
   };
 
+  function removeSpecificEducation(index, e) {
+    e.preventDefault();
+    setEducation((preVal)=>{
+
+     /*method 1*/
+      let newArray = [...preVal];
+      newArray.splice(index, 1);
+      return newArray;
+
+      /* method 2 :*/
+      //return [...preVal.slice(0, index), ...preVal.slice(index + 1)]
+    })
+     
+  }
+
+
+
   return (
     <div className="EducationOfStudents">
       <h1>Education</h1>
@@ -66,7 +83,6 @@ const EducationForm = ({ education, setEducation }) => {
                   name='Score'
                   value={item.Score}
                   onChange={(e) => handleInputChange(index, e)}
-                  required
                 />
               </div>
               <div className="InputField">
@@ -79,6 +95,8 @@ const EducationForm = ({ education, setEducation }) => {
                   required
                 />
               </div>
+              <button onClick={(e)=>{removeSpecificEducation(index, e)}}>Remove Education</button>
+              <hr />
             </React.Fragment>
           );
         })}

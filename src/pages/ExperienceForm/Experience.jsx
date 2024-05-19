@@ -12,6 +12,16 @@ const ExperienceForm = ({ experience, setExperience }) => {
     setExperience(updatedExperience);
   };
 
+
+  function RemoveSpecificExperience(index, e) {
+    e.preventDefault();
+    setExperience((preVal)=>{
+      let newArray = [...preVal];
+      newArray.splice(index, 1)
+      return newArray;
+    })
+  }
+
   return (
     <div className='ExperienceOfUser'>
       <h1>Experience</h1>
@@ -68,6 +78,8 @@ const ExperienceForm = ({ experience, setExperience }) => {
                   required
                 />
               </div>
+              <button onClick={(e)=>{RemoveSpecificExperience(index, e)}}>Remove Education</button>
+              <hr />
             </React.Fragment>
           );
         })}

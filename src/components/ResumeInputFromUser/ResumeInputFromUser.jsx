@@ -13,10 +13,10 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
   const addEducationSection = () => {
     setEducation((preVal)=>{
       return [...preVal, {
-        degree: "BCA",
-        institution: "Hindustan institute Of Science And Technology",
-        graduationStartYear: "2022",
-        graduationEndYear: "2025",
+        degree: "MBA",
+        institution: "Bal Bharti Public School",
+        graduationStartYear: "2021",
+        graduationEndYear: "2024",
         Score : "",
         description: "Describe your responsibilities and achievements in terms of impact and results. Use examples but keep it short.",
       }]

@@ -9,16 +9,28 @@
     gap: 165px;
     align-items: center;
     margin-top: 55px;
+    background-image: url('../../assets/leftBgI.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.Templates{
-    display: flex;
-    gap: 30px;
+.SelectMessage{
+    position: absolute;
+    top: 0;
+    z-index: 1;
 }
 
-.img1{
-    height: 324px;
+
+
+.tempBox img{
+    height: 325px;
+    border: 1px solid black;
+    
 }
+
+
+
+
 
 .link {
     color: #2c3e50;

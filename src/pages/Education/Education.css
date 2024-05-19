@@ -5,6 +5,25 @@
     padding: 20px;
     margin-bottom: 4px;
   }
+
+
+  .EducationOfStudents button{
+    width: 150px;
+    height: 20px;
+    border: none;
+    background-image: linear-gradient(to right, lightblue, rgb(67, 67, 174));
+    animation-name: btnReverse;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+  }
+
+  .EducationOfStudents hr{
+    margin-bottom: 50px;
+  }
+  
+
   
   .EducationOfStudents h1 {
     font-size: 24px;
