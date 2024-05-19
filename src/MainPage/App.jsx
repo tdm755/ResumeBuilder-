@@ -37,7 +37,7 @@ function App() {
     degree: "PHD",
     institution: "Saraswati Mandir High School",
     graduationStartYear: "2022",
-    graduationEndYear: "2025",
+    graduationEndYear: "2024",
     Score : "98",
     description: "Describe your responsibilities and achievements in terms of impact and results. Use examples but keep it short.",
   }]);
