@@ -1,6 +1,6 @@
 .resume_template1 {
   max-width: 900px;
-  height: 1060px;
+  min-height: 1060px;
   /* margin: 20px auto; */
   background-color: #f7f7f7;
   border-radius: 8px;
@@ -64,8 +64,7 @@
 .BottomSide {
   display: flex;
   height: 88%;
-  gap: 10%;
-  /* justify-content: space-between; */
+  gap: 4%;
   margin-right: 3%;
   align-items: center;
 }
@@ -73,11 +72,9 @@
 .leftSide {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  width: 20%;
+  width: 30%;
   padding-left: 20px;
-  /* background-color: red; */
+  height: 1056px;
   
   
 }
@@ -85,9 +82,12 @@
 .asidebar {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
   height: 100%;
-  /* margin-left: 3%; */
+  width: 100%;
+  gap: 30px;
+
 }
 .skillSec{
   height: 30%;
@@ -131,7 +131,8 @@
   justify-content: space-evenly;
   height: 100%;
   width: 75%;
-
+  gap: 30px;
+  margin-top: 30px;
   
 }
 

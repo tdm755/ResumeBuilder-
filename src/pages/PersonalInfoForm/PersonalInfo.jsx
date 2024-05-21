@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './PersonalInfo.css'
 
-const PersonalInfoForm = ({personalInfo, setPersonalInfo}) => {
 
+const PersonalInfoForm = ({personalInfo, setPersonalInfo, imgP, setImgP}) => {
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setPersonalInfo({
@@ -10,6 +11,12 @@ const PersonalInfoForm = ({personalInfo, setPersonalInfo}) => {
       [name]: value,
     });
   };
+
+
+  function handleImageChange(e) {
+    // console.log(e.target.value);
+    setImgP(e.target.value)
+  }
 
   return (
     <div className='PersonalInformationOfTheCandidate'>
@@ -25,6 +32,16 @@ const PersonalInfoForm = ({personalInfo, setPersonalInfo}) => {
             required
           />
         </div>
+        {/* <div className='InputField'>
+          <label>Image:</label>
+          <input
+            type="file"
+            name="image"
+            accept="image/jpeg, imgage/jpg, image/png"
+            onChange={(e)=>handleImageChange(e)} 
+            required
+          />
+        </div> */}
         <div className='InputField'>
           <label>WorkingAs:</label>
           <input

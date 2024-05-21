@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import Resume1 from "../components/Resumes/Resume1/Resume1";
 import Resume2 from "../components/Resumes/Resume2/Resume2.jsx";
+import Resume3 from "../components/Resumes/Resume3/Resume3.jsx";
+import Resume4 from "../components/Resumes/Resume4/Resume4.jsx";
+
 import { Link, Route, Routes } from "react-router-dom";
 import ResumeInputFromUser from "../components/ResumeInputFromUser/ResumeInputFromUser";
 import SelectTemp from "../components/TemplateSelecter/SelectTemp";
@@ -21,7 +24,9 @@ function App() {
 
   const [colorOfTem, setColorOfTem] = useState("");
   const [fontStyle, setFontStyle] = useState("");
-  
+  const [imgP, setImgP] = useState('');
+
+
 
   const [personalInfo, setPersonalInfo] = useState({
     name: "Arpit Tiwari",
@@ -69,6 +74,8 @@ function App() {
           path="/userInput"
           element={
             <ResumeInputFromUser
+              imgP = {imgP}
+              setImgP={setImgP}
               personalInfo={personalInfo}
               education={education}
               experience={experience}
@@ -79,10 +86,7 @@ function App() {
               setSkills={setSkills}
             />
           }
-        />
-
-
-
+        />     
         <Route
           path={"/Resume1"}
           element={
@@ -100,15 +104,43 @@ function App() {
           path={"/Resume2"}
           element={
             <Resume2
-              colorOfTem={colorOfTem}
-              setColorOfTem={setColorOfTem}
-              personalInfo={personalInfo}
-              education={education}
-              experience={experience}
-              skills={skills}
+            colorOfTem={colorOfTem}
+            setColorOfTem={setColorOfTem}
+            personalInfo={personalInfo}
+            education={education}
+            experience={experience}
+            skills={skills}
             />
           }
         />
+          <Route
+            path={"/Resume3"}
+            element={
+              <Resume3
+                colorOfTem={colorOfTem}
+                setColorOfTem={setColorOfTem}
+                personalInfo={personalInfo}
+                education={education}
+                experience={experience}
+                skills={skills}
+              />
+            }
+          />
+          <Route
+            path={"/Resume4"}
+            element={
+              <Resume4
+                imgP = {imgP}
+                colorOfTem={colorOfTem}
+                setColorOfTem={setColorOfTem}
+                personalInfo={personalInfo}
+                education={education}
+                experience={experience}
+                skills={skills}
+              />
+            }
+          />
+
 
         <Route path="/template" element={<SelectTemp personalInfo={personalInfo} education={education} experience={experience} skills={skills}/>} />
       </Routes>

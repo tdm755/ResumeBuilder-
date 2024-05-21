@@ -26,8 +26,8 @@ function SelectTemp({ personalInfo, education, experience, skills }) {
              </div> 
           </Link>
           <Link to={'/resume2'}><img src={Resume2} alt="" className='ease-in duration-150' />  </Link>
-          <Link to={'/resume'}><img src={Resume3} alt="" className='ease-in duration-150' />  </Link>
-          <Link to={'/resume'}><img src={Resume4} alt="" className='ease-in duration-150' />  </Link>
+          <Link to={'/resume3'}><img src={Resume3} alt="" className='ease-in duration-150' />  </Link>
+          <Link to={'/resume4'}><img src={Resume4} alt="" className='ease-in duration-150' />  </Link>
         </div>
       </div>
 

@@ -95,7 +95,7 @@ function Resume1({ personalInfo, education, experience, skills, colorOfTem, setC
                 </ul>
               </div>
               <div className="contactSec">
-                <h3>Contact Info</h3>
+                <h3 className="text-2xl">Contact Info</h3>
                 <p>Mob : {personalInfo.phone}</p>
                 <p>Email : <a href={`mailto:${personalInfo.email}`} style={{ color: `${lightenHexColor(colorOfTem, 10)}`, fontWeight: '600' }}>{personalInfo.email}</a></p>
                 <p>LinkedIn :<a href={personalInfo.LinkedIn} target="blank" style={{ color: `${lightenHexColor(colorOfTem, 10)}`, fontWeight: '600' }}>LinkedIn</a> </p>
