@@ -11,10 +11,8 @@ body{
 .resume4{
     width: 816px;
     min-height: 1056px;
-    /* background-color: white; */
     background-image: url('../../../assets/BGpic.svg');
     background-color: white;
-    /* backg */
     background-size: small;
     background-repeat: no-repeat;
     background-position: center;
@@ -29,8 +27,6 @@ body{
     border-bottom-right-radius: 34px;
     width: 30%;
     height: 93%;
-    /* border: 1px solid black; */
-    /* background-color: red; */
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -43,7 +39,6 @@ body{
     width: 216px;
     height: 216px;
     border-radius: 100%;
-    /* background-image: url('../../../assets/ProfilePic.jpeg'); */
     background-size: cover;
     border: 6px solid rgb(144, 144, 232);
 }
@@ -55,22 +50,13 @@ body{
     display: flex;
 }
 
-.InputField{
+.ImageInserter{
     pointer-events: none;
     position: relative;
     overflow: hidden;
   }
-  /* .InputField > * {
-    pointer-events: none;
-  } */
-  .InputField > input[type="file"]{
-    /* position: absolute; */
-    /* top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0; */
-    /* opacity: 0; */
-    
+ 
+  .ImageInserter > input[type="file"]{
     pointer-events: all;
     cursor: pointer;
     height: 100%;
@@ -115,7 +101,7 @@ body{
 
 .skillsSection li input{
     width: 100%;
-}
+} 
 
 .Hobbies4{
     width: 100%;
@@ -125,8 +111,5 @@ body{
     padding-left: 30px;
 }
 
+ 
 
-
-/* input[type = 'range']{
-
-} */

@@ -74,8 +74,6 @@ function App() {
           path="/userInput"
           element={
             <ResumeInputFromUser
-              imgP = {imgP}
-              setImgP={setImgP}
               personalInfo={personalInfo}
               education={education}
               experience={experience}
@@ -130,7 +128,6 @@ function App() {
             path={"/Resume4"}
             element={
               <Resume4
-                imgP = {imgP}
                 colorOfTem={colorOfTem}
                 setColorOfTem={setColorOfTem}
                 personalInfo={personalInfo}

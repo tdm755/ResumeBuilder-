@@ -6,14 +6,13 @@ import SkillsForm from '../../pages/SkillsForm/Skill'
 import './ResumeInputFromUser.css';
 import { Link } from 'react-router-dom';
 
-function ResumeInputFromUser({ personalInfo, education, experience, skills, setPersonalInfo, setEducation, setExperience, setSkills, imgP, setImgP }) {
+function ResumeInputFromUser({ personalInfo, education, experience, skills, setPersonalInfo, setEducation, setExperience, setSkills }) {
   
 
 
   const addEducationSection = () => {
     setEducation((preVal)=>{
       return [...preVal, {
-        Image : '',
         degree: "MBA",
         institution: "Bal Bharti Public School",
         graduationStartYear: "2021",
@@ -41,9 +40,7 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
   return (
     <>
     <div className='ResumeInputFromUser'>
-      <PersonalInfoForm
-        imgP = {imgP}
-        setImgP = {setImgP}
+      <PersonalInfoForm        
         personalInfo={personalInfo}
         setPersonalInfo={setPersonalInfo}
       />
