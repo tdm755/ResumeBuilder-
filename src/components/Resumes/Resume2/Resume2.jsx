@@ -5,42 +5,20 @@ import { useState } from "react";
 import "./Resume2.css";
 import ColorPicker from "../../ColorPicker/ColorPicker.jsx";
 import FontSelector from "../../FontSelector/FontSelector.jsx";
+import { downloadPDF } from "../Download.js";
 
 function Resume2({ personalInfo, education, experience, skills, colorOfTem, setColorOfTem }) {
   
   const linkRef = useRef(null);
 
 
-  const downloadPDF = () => {
-    const input = document.getElementById('resume-template2'); // ID of the resume container
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF();
-      const imgWidth = 210;
-      const pageHeight = 295;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
-      let position = 0;
-  
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-  
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-      }
-      pdf.save('resume.pdf');
-    });
-  };
 
   return (<div className="FlexReverse">
 
   <div className="ColorFonts">
       <FontSelector />
       <ColorPicker colorOfTem={colorOfTem} setColorOfTem={setColorOfTem} />
-      <button className="DownloadPdf" onClick={downloadPDF}>Download PDF</button>
+      <button className="DownloadPdf" onClick={()=>{downloadPDF("resume-template2")}}>Download PDF</button>
   </div>
 
   <hr />

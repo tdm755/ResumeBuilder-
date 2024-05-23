@@ -14,7 +14,7 @@ function ResumeInputFromUser({ personalInfo, education, experience, skills, setP
     setEducation((preVal)=>{
       return [...preVal, {
         degree: "MBA",
-        institution: "Bal Bharti Public School",
+        institution: "Kirti.M.Doongursee College",
         graduationStartYear: "2021",
         graduationEndYear: "2024",
         Score : "",
