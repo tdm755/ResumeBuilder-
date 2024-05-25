@@ -118,7 +118,7 @@ function Resume4({
           </div>
           <div class="rightSide4">
             <div class="intro4">
-              <h1 className="text-6xl">Arpit Tiwari</h1>
+              <h1 className="text-6xl">{personalInfo.name}</h1>
               <span className="text-2xl">frontEnd Developer</span>
             </div>
             <div className="education">
