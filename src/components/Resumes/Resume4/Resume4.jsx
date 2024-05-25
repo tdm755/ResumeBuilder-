@@ -28,9 +28,13 @@ function Resume4({
 
   const profileImageStyle = {
     backgroundImage: `url(${imageSrc})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    // width: '200px', 
+    // height: '200px', 
+};
+
+
 
   return (
     <>

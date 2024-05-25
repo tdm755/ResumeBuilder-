@@ -8,19 +8,18 @@ font-size: 54px;
 
 .resume_template2 {
     display: flex;
-    max-width: 900px;
-    height: 1100px;
+    width: 816px;
+    min-height: 1056px;
     /* margin: 20px auto; */
     background-color: #f7f7f7;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);    
   }
 
 .leftSide2{
     display: flex;
     flex-direction: column;
     width: 40%;
-    height: 100%;
     align-items: center;
     background-color: rgb(211, 204, 248);
     justify-content: space-between;
